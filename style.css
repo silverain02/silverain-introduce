@@ -3,10 +3,15 @@ body {
   flex-direction: column;
   align-items: center;
 
-  margin: 2rem 7rem;
+  margin: 2rem 5%;
   gap: 4rem;
 
   background-color: #f5f5f5;
+}
+
+div {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 nav {
@@ -101,17 +106,19 @@ main {
   justify-content: flex-end;
 }
 
-section:nth-child(odd) {
+section {
   display: grid;
   width: 100%;
+  gap: 0rem 5rem;
+}
+
+section:nth-child(odd) {
   grid-template-areas:
     "sub-title pic-container"
     "sub-text pic-container";
 }
 
 section:nth-child(even) {
-  display: grid;
-  width: 100%;
   grid-template-areas:
     "pic-container sub-title"
     "pic-container sub-text";
@@ -127,5 +134,139 @@ section:last-of-type .sub-text {
   margin-bottom: 3rem;
 }
 
-/* 미디어 쿼리 - 모바일 */
-/* @media (max-width:) */
+/*태블릿 가로*/
+@media all and (max-width: 1023px) {
+  body {
+    background-color: white;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  #profile-img {
+    min-width: 15rem;
+    height: 15rem;
+  }
+  header {
+    width: 80%;
+  }
+  /*main*/
+  main {
+    width: 80%;
+  }
+  section:nth-child(n) {
+    gap: 0rem 1rem;
+  }
+  .pic-container {
+    width: 21rem;
+    height: 15rem;
+  }
+  .sub-title {
+    font-size: 1.5rem;
+  }
+}
+
+/*태블릿 세로 */
+@media all and (max-width: 767px) {
+  body {
+    background-color: white;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 1%;
+
+    gap: 2rem;
+  }
+  nav {
+    gap: 2rem;
+    padding-top: 1.2rem;
+  }
+  header {
+    width: 80%;
+    gap: 0rem 2.3rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  #profile-img {
+    min-width: 10rem;
+    height: 10rem;
+  }
+
+  /*main*/
+  main {
+    width: 70%;
+    margin-top: 3rem;
+    padding-bottom: 5rem;
+
+    gap: 12rem;
+  }
+  section:nth-child(n) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pic-container {
+    width: 90%;
+    height: 15rem;
+    margin-bottom: 2rem;
+  }
+  .sub-title {
+    font-size: 1.2rem;
+  }
+  .sub-text {
+    font-size: 1rem;
+    text-align: center;
+    width: 70%;
+  }
+}
+
+/* 모바일 세로 */
+@media all and (max-width: 479px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 1%;
+
+    gap: 2rem;
+  }
+  nav {
+    gap: 2rem;
+    padding-top: 1.2rem;
+  }
+  header {
+    width: 93%;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  #profile-img {
+    min-width: 7rem;
+    height: 7rem;
+  }
+
+  /*main*/
+  main {
+    width: 93%;
+    margin-top: 3rem;
+    padding-bottom: 5rem;
+
+    gap: 12rem;
+  }
+  section:nth-child(n) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pic-container {
+    width: 90%;
+    height: 15rem;
+    margin-bottom: 2rem;
+  }
+  .sub-title {
+    font-size: 1.2rem;
+  }
+  .sub-text {
+    font-size: 1rem;
+  }
+}
