@@ -1,3 +1,7 @@
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -117,6 +121,11 @@ section {
   display: grid;
   width: 100%;
   gap: 0rem 5%;
+}
+section,
+header {
+  /*스크롤 시 중앙 위치*/
+  scroll-margin-top: 30vh;
 }
 
 section:nth-child(odd) {
@@ -315,4 +324,40 @@ a {
   .sub-text {
     font-size: 1rem;
   }
+}
+
+/*애니메이션 및 효과*/
+
+@keyframes up-down-motion {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 10px;
+  }
+}
+nav a {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+
+  transition: margin-top 0.3s, box-shadow 0.3s; /* 부드러운 전환 효과 */
+  position: relative; /* 그림자 위치 조정을 위한 설정 */
+}
+nav a:hover {
+  animation: up-down-motion 0.3s linear 0s infinite alternate;
+}
+
+nav a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -0.625rem; /* 요소 아래에 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem; /* 그림자 너비 */
+  height: 0.625rem; /* 그림자 높이 */
+  background: rgb(0, 0, 0, 0.2); /* 그림자 색상과 투명도 */
+  border-radius: 50%; /* 원형 그림자 */
+  filter: blur(0.25rem); /* 블러 효과 */
+  pointer-events: none; /* 클릭 불가 설정 */
 }
